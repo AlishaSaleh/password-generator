@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 function generatePassword(len, low, up, sc, nu) {
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
@@ -17,15 +16,11 @@ function generatePassword(len, low, up, sc, nu) {
   if (len) passLength;
 
   retVal = "";
-  for (i = 0, n = charSet.len; i < len; ++i) {
+  for (i = 0, n = charSet.length; i < len; ++i) {
     retVal += charSet.charAt(Math.floor(Math.random() * n));
-
   }
-
   return retVal;
 }
-
-
 
 // Write password to the #password input
 function writePassword() {
@@ -38,8 +33,6 @@ function writePassword() {
 
   if ((passLength <= 128 && passLength >= 8) && (userSpecial || userUpper || userNum || userLower)) {
     password = generatePassword(passLength, userLower, userUpper, userSpecial, userNum);
-  
-   
   } else {
     alert("Not a valid password length or at least one type needs to be checked!");
     return false;
@@ -50,7 +43,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
